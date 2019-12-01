@@ -1,0 +1,8 @@
+dist
+node_modules
+.DS_Store
+*.log
+*.sublime*
+
+# Re-build if needed from `style.scss`
+style.css

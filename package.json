@@ -1,0 +1,24 @@
+{
+    "name": "docs-for-health-wordpress-theme",
+    "version": "0.0.1",
+    "main": "index.js",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build:sass": "npx node-sass --include-path node_modules style.scss style.css",
+        "build:js": "npx webpack --mode production",
+        "watch:sass": "npm run build:sass -- --watch --recursive",
+        "watch:js": "npx webpack --mode development --watch",
+        "start": "npx concurrently -n w: npm:watch:*"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
+        "babel-loader": "^8.0.6",
+        "concurrently": "^5.0.0",
+        "node-sass": "^4.12.0",
+        "normalize.css": "^8.0.1",
+        "scut": "^1.4.0",
+        "webpack": "^4.39.3",
+        "webpack-cli": "^3.3.8"
+    }
+}
