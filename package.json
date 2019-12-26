@@ -1,13 +1,13 @@
 {
     "name": "docs-for-health-wordpress-theme",
     "version": "0.0.1",
-    "main": "index.js",
     "license": "Apache-2.0",
     "scripts": {
         "build:sass": "npx node-sass --include-path node_modules style.scss style.css",
         "build:js": "npx webpack --mode production",
-        "watch:sass": "npm run build:sass -- --watch --recursive",
+        "watch:sass": "npx concurrently \"npm:build:sass\" \"npm:build:sass -- --watch --recursive\"",
         "watch:js": "npx webpack --mode development --watch",
+        "build": "npx concurrently -n w: npm:build:*",
         "start": "npx concurrently -n w: npm:watch:*"
     },
     "devDependencies": {
