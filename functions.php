@@ -22,6 +22,11 @@ if (!function_exists("dfh_setup_theme")) {
             'dfh-menu-nav' => esc_html__('Top-level navigation', 'dfh'),
             'dfh-menu-footer' => esc_html__('Footer links', 'dfh'),
         ));
+        // so that the visual editor has the same styles as the theme
+        // see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles
+        add_theme_support('editor-styles');
+        // see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#enqueuing-the-editor-style
+        add_editor_style('style.css');
     }
 }
 add_action('after_setup_theme', 'dfh_setup_theme');
