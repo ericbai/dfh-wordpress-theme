@@ -1,4 +1,5 @@
-import './skip-link-focus-fix.js';
+import 'vendor/skip-link-focus-fix';
+import 'vendor/skyrocket-customizer';
 
 (function($) {
   $('.nav__menu-toggle').on('click', function() {

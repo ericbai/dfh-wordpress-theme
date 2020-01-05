@@ -8,8 +8,9 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class("root"); ?>>
+    <?php wp_body_open(); ?>
     <a class="sr-only" href="#content">
-        <?php esc_html_e('Skip to content', 'dfh'); ?>
+        <?php esc_html_e('Skip to content', DFH_TEXT_DOMAIN); ?>
     </a>
     <div class="root__contents">
         <nav class="nav">
@@ -21,12 +22,12 @@
             </div>
             <div class="nav__links-container">
                 <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'dfh-menu-nav',
-                    'menu_class' => 'nav__links',
-                    'container' => '',
-                    'depth' => 1,
-                ) );
+                wp_nav_menu(array(
+                    'theme_location' => DFH_MENU_HEADER,
+                    'menu_class'     => 'nav__links',
+                    'container'      => '',
+                    'depth'          => 1,
+                ));
                 ?>
             </div>
         </nav>

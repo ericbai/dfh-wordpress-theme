@@ -8,13 +8,13 @@
                 <?php get_template_part("partials/home-link") ?>
             </div>
             <?php
-            wp_nav_menu( array(
-                'theme_location' => 'dfh-menu-footer',
-                'menu_class' => 'footer__links',
-                'container' => '',
-                'depth' => 1,
-                'fallback_cb' => false,
-            ) );
+            wp_nav_menu(array(
+                'theme_location' => DFH_MENU_FOOTER,
+                'menu_class'     => 'footer__links',
+                'container'      => '',
+                'depth'          => 1,
+                'fallback_cb'    => false,
+            ));
             ?>
         </div>
         <div class="footer__content">

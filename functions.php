@@ -1,49 +1,24 @@
 <?php
 
-if (!function_exists("dfh_setup_theme")) {
-    function dfh_setup_theme() {
-        // see https://developer.wordpress.org/themes/basics/theme-functions/#load-text-domain
-        load_theme_textdomain('dfh', get_template_directory() . '/languages');
-        // see https://developer.wordpress.org/reference/functions/add_theme_support/#title-tag
-        add_theme_support('title-tag');
-        // see https://developer.wordpress.org/reference/functions/add_theme_support/#custom-logo
-        add_theme_support('custom-logo', array(
-            'height'      => 250,
-            'width'       => 250,
-            'flex-width'  => true,
-            'flex-height' => true,
-        ));
-        // see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#default-block-styles
-        add_theme_support('wp-block-styles');
-        // see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#responsive-embedded-content
-        add_theme_support('responsive-embeds');
-        // see https://developer.wordpress.org/themes/basics/theme-functions/#navigation-menus
-        register_nav_menus(array(
-            'dfh-menu-nav' => esc_html__('Top-level navigation', 'dfh'),
-            'dfh-menu-footer' => esc_html__('Footer links', 'dfh'),
-        ));
-        // so that the visual editor has the same styles as the theme
-        // see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#editor-styles
-        add_theme_support('editor-styles');
-        // see https://developer.wordpress.org/block-editor/developers/themes/theme-support/#enqueuing-the-editor-style
-        add_editor_style('style.css');
-    }
-}
-add_action('after_setup_theme', 'dfh_setup_theme');
+define('DFH_MENU_HEADER', 'dfh-menu-nav');
+define('DFH_MENU_FOOTER', 'dfh-menu-footer');
 
-/**
- * Enqueue scripts and styles.
- */
-function dfh_load_files() {
-    dfh_enqueue_style('dfh-style', 'style.css');
-    dfh_enqueue_script('dfh-scripts', 'dist/main.js');
-    // Use the version of jQuery bundled with WordPress for max compatibility
-    // see https://wordpress.stackexchange.com/a/140310
-    wp_enqueue_script('jquery');
+// Can be defined by either the Docs for Health theme or plugin
+if (!defined('DFH_TEXT_DOMAIN')) {
+    define('DFH_TEXT_DOMAIN', 'dfh');
 }
-add_action('wp_enqueue_scripts', 'dfh_load_files');
+if (!defined('DFH_CONTENT_TYPE_RESOURCE')) {
+    define('DFH_CONTENT_TYPE_RESOURCE', 'dfh_resource');
+}
+if (!defined('DFH_TAXONOMY_RESOURCE')) {
+    define('DFH_TAXONOMY_RESOURCE', 'dfh_resource_classification');
+}
 
-/**
- * Helper functions
- */
-require get_template_directory() . '/inc/helpers.php';
+// External dependencies for adding TinyMCE editor to customizer
+require_once get_template_directory() . '/vendor/php/skyrocket_customizer.php';
+
+// Theme files
+require_once get_template_directory() . '/php/helpers.php';
+require_once get_template_directory() . '/php/load_deps.php';
+require_once get_template_directory() . '/php/setup_customizer.php';
+require_once get_template_directory() . '/php/setup_theme.php';
