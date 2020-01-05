@@ -13,21 +13,34 @@ function dfh_theme_customizer_settings($wp_customize) {
     $wp_customize->add_section($section_footer, array(
         'title'       => __('Footer Settings', DFH_TEXT_DOMAIN),
         'description' => __('Customize the content of the footer', DFH_TEXT_DOMAIN),
-        'priority'    => 125, // Place right underneath `Homepage Settings`
+        'priority'    => 125, // place right underneath `Homepage Settings`
     ));
     // see https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/
     $wp_customize->add_setting(DFH_THEME_MOD_FOOTER_CONTENT, array(
-        // 'default'     => '#43C6E4', // TODO
-        // 'transport'   => 'postMessage', // Javascript live updating
+        'transport' => 'postMessage', // for Javascript live updating
+        'default'   => DFH_THEME_MOD_FOOTER_CONTENT_DEFAULT,
     ));
     // Custom vendor addition from Skyrocket
     // see https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2/#tinymceeditor
     // see https://developer.wordpress.org/reference/classes/wp_customize_manager/add_control/
-    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'dfh_footer_content',
+    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control(
+      $wp_customize,
+      'dfh_footer_content',
        array(
           'label'   => __('Footer content', DFH_TEXT_DOMAIN),
           'section' => $section_footer,
           'setting' => DFH_THEME_MOD_FOOTER_CONTENT,
        )
     ));
+}
+
+// to enable live preview
+// see https://developer.wordpress.org/reference/hooks/customize_preview_init/
+add_action('customize_preview_init', 'dfh_customizer_preview');
+function dfh_customizer_preview() {
+  dfh_enqueue_script(
+      'dfh_customizer_preview',
+      'src/js/customizer.js',
+      array('jquery','customize-preview'),
+  );
 }

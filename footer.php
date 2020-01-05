@@ -17,11 +17,12 @@
             ));
             ?>
         </div>
-        <div class="footer__content">
+        <div id="footer-content-container" class="footer__content">
             <?php
             // Need to sanitize output using `wp_kses_post` because content is from TinyMCE editor
             // see https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2/#tinymceeditor
-            echo wp_kses_post(get_theme_mod(DFH_THEME_MOD_FOOTER_CONTENT));
+            // see https://developer.wordpress.org/reference/functions/get_theme_mod/
+            echo wp_kses_post(get_theme_mod(DFH_THEME_MOD_FOOTER_CONTENT, DFH_THEME_MOD_FOOTER_CONTENT_DEFAULT));
             ?>
         </div>
     </footer>

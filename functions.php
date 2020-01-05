@@ -1,8 +1,19 @@
 <?php
 
-define('DFH_MENU_HEADER', 'dfh_menu_nav');
-define('DFH_MENU_FOOTER', 'dfh_menu_footer');
+define('DFH_MENU_HEADER', 'dfh-menu-nav');
+define('DFH_MENU_FOOTER', 'dfh-menu-footer');
 define('DFH_THEME_MOD_FOOTER_CONTENT', 'dfh_footer_content');
+define('DFH_THEME_MOD_FOOTER_CONTENT_DEFAULT', join(array(
+    '<p>',
+    'Docs for Health is a free community resource developed and ',
+    'maintained in Providence, RI.',
+    '</p>',
+    '<p>',
+    'While every resource is thoroughly researched and vetted, ',
+    'all resources are provided “as is” without warranty of any ',
+    'kind. Use at your own risk.',
+    '</p>',
+)));
 
 // Can be defined by either the Docs for Health theme or plugin
 if (!defined('DFH_TEXT_DOMAIN')) {
