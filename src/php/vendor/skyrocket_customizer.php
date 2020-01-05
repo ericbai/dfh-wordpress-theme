@@ -2,30 +2,13 @@
 
 if ( class_exists( 'WP_Customize_Control' ) ) {
     /**
-     * Custom Control Base Class
-     *
-     * @author Anthony Hortin <http://maddisondesigns.com>
-     * @license http://www.gnu.org/licenses/gpl-2.0.html
-     * @link https://github.com/maddisondesigns
-     */
-    class Skyrocket_Custom_Control extends WP_Customize_Control {
-        protected function get_skyrocket_resource_url() {
-            if( strpos( wp_normalize_path( __DIR__ ), wp_normalize_path( WP_PLUGIN_DIR ) ) === 0 ) {
-                // We're in a plugin directory and need to determine the url accordingly.
-                return plugin_dir_url( __DIR__ );
-            }
-            return trailingslashit( get_template_directory_uri() );
-        }
-    }
-
-    /**
      * TinyMCE Custom Control
      *
      * @author Anthony Hortin <http://maddisondesigns.com>
      * @license http://www.gnu.org/licenses/gpl-2.0.html
      * @link https://github.com/maddisondesigns
      */
-    class Skyrocket_TinyMCE_Custom_control extends Skyrocket_Custom_Control {
+    class Skyrocket_TinyMCE_Custom_control extends WP_Customize_Control {
         /**
          * The type of control being rendered
          */
@@ -34,8 +17,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
          * Enqueue our scripts and styles
          */
         public function enqueue(){
-            wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'vendor/js/customizer.js', array( 'jquery' ), '1.0', true );
-            wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'vendor/css/customizer.css', array(), '1.0', 'all' );
+            // Stylesheet loaded via `style.scss`
+            // Skyrocket customizer script needs to be loaded directly by the custom control
+            dfh_enqueue_script('skyrocket-custom-controls-js', 'src/js/vendor/skyrocket-customizer.js', array('jquery'));
             wp_enqueue_editor();
         }
         /**

@@ -1,7 +1,8 @@
 <?php
 
-define('DFH_MENU_HEADER', 'dfh-menu-nav');
-define('DFH_MENU_FOOTER', 'dfh-menu-footer');
+define('DFH_MENU_HEADER', 'dfh_menu_nav');
+define('DFH_MENU_FOOTER', 'dfh_menu_footer');
+define('DFH_THEME_MOD_FOOTER_CONTENT', 'dfh_footer_content');
 
 // Can be defined by either the Docs for Health theme or plugin
 if (!defined('DFH_TEXT_DOMAIN')) {
@@ -14,11 +15,11 @@ if (!defined('DFH_TAXONOMY_RESOURCE')) {
     define('DFH_TAXONOMY_RESOURCE', 'dfh_resource_classification');
 }
 
-// External dependencies for adding TinyMCE editor to customizer
-require_once get_template_directory() . '/vendor/php/skyrocket_customizer.php';
-
 // Theme files
-require_once get_template_directory() . '/php/helpers.php';
-require_once get_template_directory() . '/php/load_deps.php';
-require_once get_template_directory() . '/php/setup_customizer.php';
-require_once get_template_directory() . '/php/setup_theme.php';
+require_once get_template_directory() . '/src/php/helpers.php';
+require_once get_template_directory() . '/src/php/load_deps.php';
+require_once get_template_directory() . '/src/php/setup_customizer.php';
+require_once get_template_directory() . '/src/php/setup_theme.php';
+
+// External dependencies for adding TinyMCE editor to customizer
+require_once get_template_directory() . '/src/php/vendor/skyrocket_customizer.php';

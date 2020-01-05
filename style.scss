@@ -9,15 +9,16 @@ License URI: https://www.apache.org/licenses/LICENSE-2.0.txt
 Text Domain: docsforhealth
 */
 
-@import 'scut/dist/scut';
 @import 'normalize.css/normalize';
+@import 'scut/dist/scut';
+@import 'src/scss/vendor/skyrocket-customizer';
 
-@import 'scss/vars';
-@import 'scss/overrides';
-@import 'scss/mixins';
+@import 'src/scss/base/vars';
+@import 'src/scss/base/overrides';
+@import 'src/scss/base/mixins';
 
-@import 'scss/controls';
-@import 'scss/elements';
-@import 'scss/structure';
-@import 'scss/typography';
-@import 'scss/utils';
+@import 'src/scss/base/controls';
+@import 'src/scss/base/elements';
+@import 'src/scss/base/structure';
+@import 'src/scss/base/typography';
+@import 'src/scss/base/utils';

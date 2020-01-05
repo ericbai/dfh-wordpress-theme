@@ -15,11 +15,11 @@ function dfh_enqueue_style(string $handle, string $filename) {
 }
 
 // https://developer.wordpress.org/reference/functions/wp_enqueue_script/
-function dfh_enqueue_script(string $handle, string $filename) {
+function dfh_enqueue_script(string $handle, string $filename, array $deps = array()) {
     wp_enqueue_script(
         $handle,
         get_stylesheet_directory_uri() . '/' . $filename,
-        array(),
+        $deps,
         // `filemtime` takes a file path NOT a url
         filemtime(get_stylesheet_directory() . '/' . $filename), // set version as file last modified time
         true

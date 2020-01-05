@@ -8,7 +8,6 @@
 add_action('customize_register', 'dfh_theme_customizer_settings');
 function dfh_theme_customizer_settings($wp_customize) {
     $section_footer = 'dfh_footer_settings';
-    $setting_footer_content = 'dfh_footer_content';
 
     // see https://developer.wordpress.org/reference/classes/wp_customize_manager/add_section/
     $wp_customize->add_section($section_footer, array(
@@ -17,7 +16,7 @@ function dfh_theme_customizer_settings($wp_customize) {
         'priority'    => 125, // Place right underneath `Homepage Settings`
     ));
     // see https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/
-    $wp_customize->add_setting($setting_footer_content, array(
+    $wp_customize->add_setting(DFH_THEME_MOD_FOOTER_CONTENT, array(
         // 'default'     => '#43C6E4', // TODO
         // 'transport'   => 'postMessage', // Javascript live updating
     ));
@@ -28,7 +27,7 @@ function dfh_theme_customizer_settings($wp_customize) {
        array(
           'label'   => __('Footer content', DFH_TEXT_DOMAIN),
           'section' => $section_footer,
-          'setting' => $setting_footer_content,
+          'setting' => DFH_THEME_MOD_FOOTER_CONTENT,
        )
     ));
 }
