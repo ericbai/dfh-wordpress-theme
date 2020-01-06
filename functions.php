@@ -2,6 +2,7 @@
 
 define('DFH_MENU_HEADER', 'dfh-menu-nav');
 define('DFH_MENU_FOOTER', 'dfh-menu-footer');
+define('DFH_THEME_MOD_RESOURCE_OVERVIEW_LOCATION', 'dfh_resources_overview_location');
 define('DFH_THEME_MOD_FOOTER_CONTENT', 'dfh_footer_content');
 define('DFH_THEME_MOD_FOOTER_CONTENT_DEFAULT', join(array(
     '<p>',
