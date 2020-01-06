@@ -2,7 +2,7 @@
 
 define('DFH_MENU_HEADER', 'dfh-menu-nav');
 define('DFH_MENU_FOOTER', 'dfh-menu-footer');
-define('DFH_THEME_MOD_RESOURCE_OVERVIEW_LOCATION', 'dfh_resources_overview_location');
+define('DFH_THEME_MOD_RESOURCE_OVERVIEW_LOCATION', 'dfh_resource_overview_location');
 define('DFH_THEME_MOD_FOOTER_CONTENT', 'dfh_footer_content');
 define('DFH_THEME_MOD_FOOTER_CONTENT_DEFAULT', join(array(
     '<p>',
@@ -28,6 +28,7 @@ if (!defined('DFH_TAXONOMY_RESOURCE')) {
 }
 
 // Theme files
+require_once get_template_directory() . '/src/php/add_post_states.php';
 require_once get_template_directory() . '/src/php/helpers.php';
 require_once get_template_directory() . '/src/php/load_deps.php';
 require_once get_template_directory() . '/src/php/setup_customizer.php';

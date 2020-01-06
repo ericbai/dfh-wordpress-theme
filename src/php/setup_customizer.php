@@ -30,7 +30,7 @@ function dfh_theme_customizer_settings($wp_customize) {
     // know how to get back to the overview page without having the user specify each time
     // see https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/
     $wp_customize->add_setting(DFH_THEME_MOD_RESOURCE_OVERVIEW_LOCATION, array());
-    $wp_customize->add_control('dfh_resources_overview_location', array(
+    $wp_customize->add_control('dfh_resource_overview_location', array(
         'section'        => $section_page_locations,
         'setting'        => DFH_THEME_MOD_RESOURCE_OVERVIEW_LOCATION,
         'label'          => __('Resource overview page', DFH_TEXT_DOMAIN),
