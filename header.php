@@ -31,5 +31,5 @@
                 ?>
             </div>
         </nav>
-        <div id="content">
+        <div id="content" class="root__contents__content">
 

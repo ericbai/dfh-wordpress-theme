@@ -3,6 +3,7 @@
 define('DFH_MENU_HEADER', 'dfh-menu-nav');
 define('DFH_MENU_FOOTER', 'dfh-menu-footer');
 define('DFH_THEME_MOD_RESOURCE_OVERVIEW_LOCATION', 'dfh_resource_overview_location');
+define('DFH_THEME_MOD_TOOLKIT_OVERVIEW_LOCATION', 'dfh_toolkit_overview_location');
 define('DFH_THEME_MOD_FOOTER_CONTENT', 'dfh_footer_content');
 define('DFH_THEME_MOD_FOOTER_CONTENT_DEFAULT', join(array(
     '<p>',
@@ -22,6 +23,9 @@ if (!defined('DFH_TEXT_DOMAIN')) {
 }
 if (!defined('DFH_CONTENT_TYPE_RESOURCE')) {
     define('DFH_CONTENT_TYPE_RESOURCE', 'dfh_resource');
+}
+if (!defined('DFH_CONTENT_TYPE_TOOLKIT')) {
+    define('DFH_CONTENT_TYPE_TOOLKIT', 'dfh_toolkit');
 }
 if (!defined('DFH_TAXONOMY_RESOURCE')) {
     define('DFH_TAXONOMY_RESOURCE', 'dfh_resource_classification');

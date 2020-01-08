@@ -38,6 +38,18 @@ function dfh_theme_customizer_settings($wp_customize) {
         'allow_addition' => true,
     ));
 
+    // Allow specifying which page is the Toolkit Overview page so that our toolkit detail
+    // know how to get back to the overview page without having the user specify each time
+    // see https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/
+    $wp_customize->add_setting(DFH_THEME_MOD_TOOLKIT_OVERVIEW_LOCATION, array());
+    $wp_customize->add_control('dfh_toolkit_overview_location', array(
+        'section'        => $section_page_locations,
+        'setting'        => DFH_THEME_MOD_TOOLKIT_OVERVIEW_LOCATION,
+        'label'          => __('Toolkit overview page', DFH_TEXT_DOMAIN),
+        'type'           => 'dropdown-pages',
+        'allow_addition' => true,
+    ));
+
     // Add a section to manage footer content
     // see https://developer.wordpress.org/reference/classes/wp_customize_manager/add_section/
     $wp_customize->add_section($section_footer, array(
@@ -64,7 +76,7 @@ function dfh_theme_customizer_settings($wp_customize) {
     ));
 }
 
-// to enable live preview
+// To enable live preview
 // see https://developer.wordpress.org/reference/hooks/customize_preview_init/
 add_action('customize_preview_init', 'dfh_customizer_preview');
 function dfh_customizer_preview() {
