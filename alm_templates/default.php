@@ -6,36 +6,43 @@ $id = get_the_ID();
 ?>
 
 <?php if (get_post_type($id) == DFH_CONTENT_TYPE_RESOURCE && has_block(DFH_REQUIRED_BLOCK_RESOURCE, $id)): ?>
-    <div class="resource-previews__preview">
-        <div class="resource-previews__preview__info">
-            <h2 class="heading heading--3">
-                <a
-                    class="link"
-                    href="<?php the_permalink(); ?>"
-                    title="<?php the_title_attribute(); ?>"
-                >
-                    <?php the_title(); ?>
-                </a>
-            </h2>
-            <!-- TODO extract excerpt -->
-            <p class="text">
-                <?php the_excerpt(); ?>
-            </p>
-        </div>
-        <ul class="resource-previews__preview__tags">
-            <?php
-                // see https://wordpress.stackexchange.com/a/342262
-                $term_names = wp_list_pluck(get_the_terms($id, DFH_TAXONOMY_RESOURCE), 'name');
-                // Only show first three terms due to space limitations
-                foreach (array_slice($term_names, 0, 3) as $name) {
-                  echo '<li class="tag">' . esc_html($name) . '</li>';
-                }
-            ?>
-        </ul>
-    </div>
-<?php elseif (get_post_type($id) == DFH_CONTENT_TYPE_TOOLKIT && has_block(DFH_REQUIRED_BLOCK_TOOLKIT_METADATA, $id)): ?>
     <?php
-        $block = dfh_get_block(DFH_REQUIRED_BLOCK_TOOLKIT_METADATA, parse_blocks(get_the_content()));
+        $block = dfh_get_block(DFH_REQUIRED_BLOCK_RESOURCE, parse_blocks(get_the_content()));
+        $metadata = $block ? $block['attrs'] : null;
+    ?>
+    <?php if ($metadata): ?>
+        <div class="resource-previews__preview">
+            <div class="resource-previews__preview__info">
+                <h2 class="heading heading--3">
+                    <a
+                        class="link"
+                        href="<?php the_permalink(); ?>"
+                        title="<?php the_title_attribute(); ?>"
+                    >
+                        <?php the_title(); ?>
+                    </a>
+                </h2>
+                <?php if ($metadata['description']): ?>
+                    <p class="text">
+                        <?php echo esc_html($metadata['description']); ?>
+                    </p>
+                <?php endif ?>
+            </div>
+            <ul class="resource-previews__preview__tags">
+                <?php
+                    // see https://wordpress.stackexchange.com/a/342262
+                    $term_names = wp_list_pluck(get_the_terms($id, DFH_TAXONOMY_RESOURCE), 'name');
+                    // Only show first three terms due to space limitations
+                    foreach (array_slice($term_names, 0, 3) as $name) {
+                      echo '<li class="tag">' . esc_html($name) . '</li>';
+                    }
+                ?>
+            </ul>
+        </div>
+    <?php endif ?>
+<?php elseif (get_post_type($id) == DFH_CONTENT_TYPE_TOOLKIT && has_block(DFH_REQUIRED_BLOCK_TOOLKIT, $id)): ?>
+    <?php
+        $block = dfh_get_block(DFH_REQUIRED_BLOCK_TOOLKIT, parse_blocks(get_the_content()));
         $metadata = $block ? $block['attrs'] : null;
     ?>
     <?php if ($metadata): ?>
@@ -108,9 +115,11 @@ $id = get_the_ID();
                         <?php endif ?>
                     </ul>
                 </div>
-                <p class="text">
-                    <?php echo esc_html($metadata['description']); ?>
-                </p>
+                <?php if ($metadata['description']): ?>
+                    <p class="text">
+                        <?php echo esc_html($metadata['description']); ?>
+                    </p>
+                <?php endif ?>
             </div>
             <?php if ($metadata['previewVideoUrl'] && $metadata['previewImageUrl']): ?>
                 <div class="toolkit-preview__video">
