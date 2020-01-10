@@ -16,7 +16,7 @@
         <nav class="nav">
             <div class="nav__contents">
                 <div class="nav__logo-container">
-                    <?php get_template_part("src/php/partials/home-link") ?>
+                    <?php get_template_part("inc/php/partials/home-link") ?>
                 </div>
                 <button type="button" class="nav__menu-toggle"></button>
             </div>

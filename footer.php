@@ -5,7 +5,7 @@
     <footer class="footer">
         <div class="footer__content">
             <div class="footer__logo-container">
-                <?php get_template_part("src/php/partials/home-link") ?>
+                <?php get_template_part("inc/php/partials/home-link") ?>
             </div>
             <?php
             wp_nav_menu(array(

@@ -83,6 +83,6 @@ function dfh_customizer_preview() {
     dfh_enqueue_script(
         'dfh_customizer_preview',
         'src/js/customizer.js',
-        array('jquery','customize-preview'),
+        array('jquery', 'customize-preview')
     );
 }

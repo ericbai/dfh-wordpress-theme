@@ -22,7 +22,7 @@ install:
 script:
   - yarn build
 before_deploy:
-  - zip -r /tmp/dfh-wordpress-theme-${TRAVIS_TAG}.zip alm_templates assets contact_form_7_templates dist *.php *.css
+  - zip -r /tmp/dfh-wordpress-theme-${TRAVIS_TAG}.zip alm_templates assets contact_form_7_templates dist inc *.php *.css
 deploy:
   - provider: releases
     token: ${GITHUB_TOKEN}
