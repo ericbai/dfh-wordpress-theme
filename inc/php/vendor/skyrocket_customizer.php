@@ -18,9 +18,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
          */
         public function enqueue(){
             // Skyrocket customizer script needs to be loaded directly by the custom control
-            dfh_enqueue_script('skyrocket-custom-controls-js', 'src/js/vendor/skyrocket-customizer.js', array('jquery'));
+            dfh_enqueue_script('skyrocket-custom-controls-js', 'inc/js/vendor/skyrocket-customizer.js', array('jquery'));
             // Styles needed to be loaded here in order to be applied
-            dfh_enqueue_style('skyrocket-custom-controls-css', 'src/scss/vendor/skyrocket-customizer.css');
+            dfh_enqueue_style('skyrocket-custom-controls-css', 'inc/css/vendor/skyrocket-customizer.css');
             wp_enqueue_editor();
         }
         /**

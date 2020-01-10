@@ -82,7 +82,7 @@ add_action('customize_preview_init', 'dfh_customizer_preview');
 function dfh_customizer_preview() {
     dfh_enqueue_script(
         'dfh_customizer_preview',
-        'src/js/customizer.js',
+        'inc/js/customizer.js',
         array('jquery', 'customize-preview')
     );
 }
