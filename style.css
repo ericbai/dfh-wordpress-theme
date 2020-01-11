@@ -5,7 +5,7 @@ Author URI: https://github.com/ericbai
 GitHub Theme URI: https://github.com/ericbai/dfh-wordpress-theme
 Release Asset: true
 Description: Theme for the Docs for Health website
-Version: 0.0.8
+Version: 0.0.9
 License: Apache-2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0.txt
 Text Domain: dfh
@@ -764,9 +764,10 @@ img {
       font-weight: 600; }
   @media (min-width: 768px) {
     .footer {
-      flex-wrap: nowrap; }
+      flex-wrap: nowrap;
+      justify-content: space-between; }
       .footer__content {
-        width: 50%;
+        width: calc(50% - 1rem);
         min-width: 0; }
         .footer__content + .footer__content {
           margin-top: 0; }
