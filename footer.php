@@ -2,7 +2,7 @@
         </div> <!-- #content -->
     </div> <!-- .root__contents -->
 
-    <footer class="footer">
+    <footer class="footer root__footer">
         <div class="footer__content">
             <div class="footer__logo-container">
                 <?php get_template_part("inc/php/partials/home-link") ?>
