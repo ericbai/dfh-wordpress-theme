@@ -1,0 +1,7 @@
+/*
+This is a BLANK file because we want to never have the default styles take effect because we
+manually overwrite these styles in the DFH PLUGIN.
+
+We want to overwrite the default styles because we want to make sure that the URLs here are RELATIVE
+so that we don't get mixed content errors when serving over HTTPS
+*/
