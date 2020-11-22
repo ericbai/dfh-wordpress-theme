@@ -39,9 +39,15 @@ if (!function_exists('dfh_get_block') || !function_exists('dfh_pluralize')) {
                 <?php
                     // see https://wordpress.stackexchange.com/a/342262
                     $term_names = wp_list_pluck(get_the_terms($id, DFH_TAXONOMY_RESOURCE), 'name');
-                    // Only show first three terms due to space limitations
-                    foreach (array_slice($term_names, 0, 3) as $name) {
-                      echo '<li class="tag">' . esc_html($name) . '</li>';
+                    foreach ($term_names as $name) {
+                      echo '<li class="resource-previews__preview__tags__tag tag">' . esc_html($name) . '</li>';
+                    }
+                ?>
+                <?php
+                    // see https://wordpress.stackexchange.com/a/342262
+                    $term_names = wp_list_pluck(get_the_terms($id, DFH_TAXONOMY_RESOURCE_TYPE), 'name');
+                    foreach ($term_names as $name) {
+                      echo '<li class="resource-previews__preview__tags__tag tag tag--notable">' . esc_html($name) . '</li>';
                     }
                 ?>
             </ul>
